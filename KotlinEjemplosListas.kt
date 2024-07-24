@@ -23,3 +23,16 @@ private fun listasInmutables() {
     pruebaFiltro.forEach { dia -> println(dia) }
 
 }
+
+private fun listasMutables() {
+
+    val diasSemana: MutableList<String> = mutableListOf("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+    diasSemana.add("EjemploFin") // Por defecto se añade en la últma posición
+    println(diasSemana)
+
+    diasSemana.add(0, "EjemploPrimero") // Lo añade en la primera posición según el índice
+    if(diasSemana.isNotEmpty()) {
+        diasSemana.forEach { println("Día=$it") }
+        diasSemana.forEach { dia -> println("Día=$dia") }
+    }
+}
