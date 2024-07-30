@@ -1,5 +1,6 @@
 package com.renegade.aplicacion2024.firstapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +19,13 @@ class FirstAppActivity : AppCompatActivity() {
         // val strEtName = etName.text.toString()
 
         btnStart.setOnClickListener {
-            Log.i("renegade","Botón pulsado ${etName.text.toString()}")
+            val name = etName.text.toString()
+            if(name.isNotEmpty()) {
+                Log.i("renegade","Botón pulsado $name")
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra("EXTRA_NAME",name)
+                startActivity(intent)
+            }
         }
 
     }
