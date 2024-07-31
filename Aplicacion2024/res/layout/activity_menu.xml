@@ -3,24 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_marginHorizontal="80dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="80dp"
     tools:context=".firstapp.MenuActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAppSaludar"
-        android:text="Aplicación saludar"
-        android:background="@color/teal_200"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/teal_200"
+        android:text="Aplicación saludar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.appcompat.widget.AppCompatButton>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAppImc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/teal_200"
+        android:text="Aplicación IMC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAppSaludar">
+
+    </androidx.appcompat.widget.AppCompatButton>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
