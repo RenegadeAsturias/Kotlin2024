@@ -23,15 +23,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/icMale"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_male"
+                android:layout_marginBottom="8dp"
+                app:tint="@color/white"></ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18pt"
-                android:text="Hombre">
-            </TextView>
+                android:text="Hombre"
+                android:textAllCaps="true"
+                android:textColor="@color/title_text"
+                android:textSize="18pt"></TextView>
 
         </LinearLayout>
 
@@ -50,15 +59,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">>
+
+            <ImageView
+                android:id="@+id/icFemale"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_female"
+                android:layout_marginBottom="8dp"
+                app:tint="@color/white"></ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="18pt"
-                android:text="Mujer">
-            </TextView>
+                android:text="Mujer"
+                android:textAllCaps="true"
+                android:textColor="@color/title_text"
+                android:textSize="18pt"></TextView>
 
         </LinearLayout>
 
