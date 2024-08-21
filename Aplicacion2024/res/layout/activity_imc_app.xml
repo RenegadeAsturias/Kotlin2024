@@ -228,6 +228,33 @@
                 android:textStyle="bold"
                 tools:text="26" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnSubtractAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_subtract"
+                    android:tint="@color/white"
+                    android:backgroundTint="@color/background_fab"
+                    android:layout_marginEnd="16dp">
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnPlusAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_plus"
+                    android:tint="@color/white"
+                    android:backgroundTint="@color/background_fab">
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+            </LinearLayout>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

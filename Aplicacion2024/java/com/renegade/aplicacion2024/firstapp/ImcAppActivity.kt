@@ -18,6 +18,7 @@ class ImcAppActivity : AppCompatActivity() {
     private var isMaleSelected:Boolean = true
     private var isFemaleSelected:Boolean = false
     private var currentWeight:Int = 60
+    private var currentAge:Int = 26
 
     private lateinit var viewMale:CardView
     private lateinit var viewFemale:CardView
@@ -26,6 +27,9 @@ class ImcAppActivity : AppCompatActivity() {
     private lateinit var btnSubtractWeight:FloatingActionButton
     private lateinit var btnPlusWeight:FloatingActionButton
     private lateinit var tvWeight:TextView
+    private lateinit var btnSubtractAge:FloatingActionButton
+    private lateinit var btnPlusAge:FloatingActionButton
+    private lateinit var tvAge:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +48,9 @@ class ImcAppActivity : AppCompatActivity() {
         btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
         btnPlusWeight = findViewById(R.id.btnPlusWeight)
         tvWeight = findViewById(R.id.tvWeight)
+        btnSubtractAge = findViewById(R.id.btnSubtractAge)
+        btnPlusAge = findViewById(R.id.btnPlusAge)
+        tvAge = findViewById(R.id.tvAge)
     }
 
     private fun initListeners() {
@@ -68,10 +75,22 @@ class ImcAppActivity : AppCompatActivity() {
             currentWeight--
             setWeight()
         }
+        btnPlusAge.setOnClickListener {
+            currentAge++
+            setAge()
+        }
+        btnSubtractAge.setOnClickListener {
+            currentAge--
+            setAge()
+        }
     }
 
     private fun setWeight() {
         tvWeight.setText(currentWeight.toString())
+    }
+
+    private fun setAge() {
+        tvAge.setText(currentAge.toString())
     }
 
     private fun changeGender() {
@@ -95,6 +114,8 @@ class ImcAppActivity : AppCompatActivity() {
 
     private fun initUI() {
         setGenderColor()
+        setWeight()
+        setAge()
     }
 
 }
