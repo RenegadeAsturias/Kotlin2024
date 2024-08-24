@@ -2,6 +2,7 @@ package com.renegade.aplicacion2024.firstapp
 
 import android.icu.text.DecimalFormat
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -12,24 +13,27 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import com.renegade.aplicacion2024.R
+import android.util.Log
 
 class ImcAppActivity : AppCompatActivity() {
 
-    private var isMaleSelected:Boolean = true
-    private var isFemaleSelected:Boolean = false
-    private var currentWeight:Int = 60
-    private var currentAge:Int = 26
+    private var isMaleSelected: Boolean = true
+    private var isFemaleSelected: Boolean = false
+    private var currentWeight: Int = 60
+    private var currentAge: Int = 26
+    private var currentHeight: Int = 120
 
-    private lateinit var viewMale:CardView
-    private lateinit var viewFemale:CardView
-    private lateinit var tvHeight:TextView
-    private lateinit var rsHeight:RangeSlider
-    private lateinit var btnSubtractWeight:FloatingActionButton
-    private lateinit var btnPlusWeight:FloatingActionButton
-    private lateinit var tvWeight:TextView
-    private lateinit var btnSubtractAge:FloatingActionButton
-    private lateinit var btnPlusAge:FloatingActionButton
-    private lateinit var tvAge:TextView
+    private lateinit var viewMale: CardView
+    private lateinit var viewFemale: CardView
+    private lateinit var tvHeight: TextView
+    private lateinit var rsHeight: RangeSlider
+    private lateinit var btnSubtractWeight: FloatingActionButton
+    private lateinit var btnPlusWeight: FloatingActionButton
+    private lateinit var tvWeight: TextView
+    private lateinit var btnSubtractAge: FloatingActionButton
+    private lateinit var btnPlusAge: FloatingActionButton
+    private lateinit var tvAge: TextView
+    private lateinit var btnCalculate: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +55,7 @@ class ImcAppActivity : AppCompatActivity() {
         btnSubtractAge = findViewById(R.id.btnSubtractAge)
         btnPlusAge = findViewById(R.id.btnPlusAge)
         tvAge = findViewById(R.id.tvAge)
+        btnCalculate = findViewById(R.id.btnCalculate)
     }
 
     private fun initListeners() {
@@ -63,9 +68,10 @@ class ImcAppActivity : AppCompatActivity() {
             setGenderColor()
         }
         rsHeight.addOnChangeListener { _, value, _ ->
+            currentHeight = value.toInt()
             val df = DecimalFormat("#.##")
-            val result = df.format(value)
-            tvHeight.text = "$result cm"
+            currentHeight = df.format(value).toInt()
+            tvHeight.text = "$currentHeight cm"
         }
         btnPlusWeight.setOnClickListener {
             currentWeight++
@@ -83,6 +89,14 @@ class ImcAppActivity : AppCompatActivity() {
             currentAge--
             setAge()
         }
+        btnCalculate.setOnClickListener {
+            calculateIMC()
+        }
+    }
+
+    private fun calculateIMC() {
+        val imc = currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)
+        Log.i("renegade","El imc es $imc")
     }
 
     private fun setWeight() {
@@ -103,8 +117,8 @@ class ImcAppActivity : AppCompatActivity() {
         viewFemale.setCardBackgroundColor(getBackgroundColor(isFemaleSelected))
     }
 
-    private fun getBackgroundColor(isSelectedComponent:Boolean):Int {
-        val colorReference = if(isSelectedComponent) {
+    private fun getBackgroundColor(isSelectedComponent: Boolean): Int {
+        val colorReference = if (isSelectedComponent) {
             R.color.background_component_selected
         } else {
             R.color.background_component
