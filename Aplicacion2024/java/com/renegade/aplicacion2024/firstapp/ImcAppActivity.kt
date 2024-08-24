@@ -1,5 +1,6 @@
 package com.renegade.aplicacion2024.firstapp
 
+import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.widget.Button
@@ -34,6 +35,10 @@ class ImcAppActivity : AppCompatActivity() {
     private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var tvAge: TextView
     private lateinit var btnCalculate: Button
+
+    companion object {
+        const val IMC_KEY = "IMC_RESULT"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,13 +95,16 @@ class ImcAppActivity : AppCompatActivity() {
             setAge()
         }
         btnCalculate.setOnClickListener {
-            calculateIMC()
+            val result:Double = calculateIMC()
         }
     }
 
-    private fun calculateIMC() {
+    private fun calculateIMC():Double {
+        val df = DecimalFormat("#.##")
         val imc = currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)
-        Log.i("renegade","El imc es $imc")
+        val result = df.format(imc).toDouble()
+        Log.i("renegade","El imc es $result")
+        return result;
     }
 
     private fun setWeight() {
@@ -130,6 +138,12 @@ class ImcAppActivity : AppCompatActivity() {
         setGenderColor()
         setWeight()
         setAge()
+    }
+
+    private fun navigateToResult(result: Double) {
+        val intent = Intent(this, ResultIMCActivity::class.java)
+        intent.putExtra(IMC_KEY,result)
+        startActivity(intent)
     }
 
 }
