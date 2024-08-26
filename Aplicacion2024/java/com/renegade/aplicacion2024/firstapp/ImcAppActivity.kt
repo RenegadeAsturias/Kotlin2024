@@ -96,6 +96,7 @@ class ImcAppActivity : AppCompatActivity() {
         }
         btnCalculate.setOnClickListener {
             val result:Double = calculateIMC()
+            navigateToResult(result)
         }
     }
 
