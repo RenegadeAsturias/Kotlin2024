@@ -15,16 +15,22 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
 
         val btnAppSaludar = findViewById<AppCompatButton>(R.id.btnAppSaludar)
-        val btnAppImc = findViewById<AppCompatButton>(R.id.btnAppImc)
+        val btnAppIMC = findViewById<AppCompatButton>(R.id.btnAppIMC)
+        val btnAppTODO = findViewById<AppCompatButton>(R.id.btnAppTODO)
 
         btnAppSaludar.setOnClickListener {
             val intentAppSaludar = Intent(this, FirstAppActivity::class.java)
             startActivity(intentAppSaludar)
         }
 
-        btnAppImc.setOnClickListener {
+        btnAppIMC.setOnClickListener {
             val intentAppImc = Intent(this, ImcAppActivity::class.java)
             startActivity(intentAppImc)
+        }
+
+        btnAppTODO.setOnClickListener {
+            val intentAppTodo = Intent(this, TodoActivity::class.java)
+            startActivity(intentAppTodo)
         }
 
     }
