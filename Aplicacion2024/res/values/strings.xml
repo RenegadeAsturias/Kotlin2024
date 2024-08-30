@@ -17,4 +17,9 @@
     <string name="description_sobrepeso">Estás por encima lo óptimo para tu peso y altura.</string>
     <string name="title_obesidad">Obesidad</string>
     <string name="description_obesidad">Estás muy por encima lo óptimo para tu peso y altura.</string>
+
+    <!-- TodoApp -->
+    <string name="todo_title">Bienvenido</string>
+    <string name="todo_categories">Categorías</string>
+
 </resources>
