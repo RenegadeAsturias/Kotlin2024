@@ -8,18 +8,27 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.renegade.aplicacion2024.R
+import com.renegade.aplicacion2024.firstapp.TaskCategory.*
 
 class TodoActivity : AppCompatActivity() {
 
     private val categories = listOf(
-        TaskCategory.Personal,
-        TaskCategory.Business,
-        TaskCategory.Other
+        Personal,
+        Business,
+        Other
+    )
+
+    private val tasks = mutableListOf(
+        Task("PruebaBusiness", Business),
+        Task("PruebaPersonal", Personal),
+        Task("PruebaOther", Other)
     )
 
     private lateinit var rvCategories: RecyclerView
     private lateinit var categoriesAdapter: CategoriesAdapter
+
     private lateinit var rvTasks: RecyclerView
+    private lateinit var tasksAdapter: TasksAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +46,10 @@ class TodoActivity : AppCompatActivity() {
         categoriesAdapter = CategoriesAdapter(categories)
         rvCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
+
+        tasksAdapter = TasksAdapter(tasks)
+        rvTasks.layoutManager = LinearLayoutManager(this)
+        rvTasks.adapter = tasksAdapter
     }
 
 }
