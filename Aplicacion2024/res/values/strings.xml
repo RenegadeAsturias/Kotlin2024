@@ -22,5 +22,6 @@
     <string name="todo_title">Bienvenido</string>
     <string name="todo_categories">Categorías</string>
     <string name="todo_tasks">Categorías</string>
+    <string name="todo_dialog_add_task">Añade la tarea</string>
 
 </resources>

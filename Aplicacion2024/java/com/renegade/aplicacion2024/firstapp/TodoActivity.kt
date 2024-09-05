@@ -1,5 +1,6 @@
 package com.renegade.aplicacion2024.firstapp
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.renegade.aplicacion2024.R
 import com.renegade.aplicacion2024.firstapp.TaskCategory.*
 
@@ -30,16 +32,20 @@ class TodoActivity : AppCompatActivity() {
     private lateinit var rvTasks: RecyclerView
     private lateinit var tasksAdapter: TasksAdapter
 
+    private lateinit var fabAddTask:FloatingActionButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
         initComponent()
         initUI()
+        initListeners()
     }
 
     private fun initComponent() {
         rvCategories = findViewById(R.id.rvCategories)
         rvTasks = findViewById(R.id.rvTasks)
+        fabAddTask = findViewById(R.id.fabAddTask)
     }
 
     private fun initUI() {
@@ -50,6 +56,14 @@ class TodoActivity : AppCompatActivity() {
         tasksAdapter = TasksAdapter(tasks)
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
+    }
+
+    private fun initListeners() {
+        fabAddTask.setOnClickListener { showDialog() }
+    }
+
+    private fun showDialog() {
+        val dialog = Dialog(this)
     }
 
 }
