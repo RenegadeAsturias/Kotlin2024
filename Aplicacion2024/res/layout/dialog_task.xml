@@ -14,4 +14,36 @@
         android:hint="@string/todo_dialog_add_task"
         android:textColorHint="@color/white"/>
 
+    <RadioGroup
+        android:id="@+id/rbCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbBusiness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_business"
+            android:checked="true"
+            android:textColor="@color/white"
+            android:buttonTint="@color/todo_business_category"/>
+
+        <RadioButton
+            android:id="@+id/rbPersonal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_personal"
+            android:textColor="@color/white"
+            android:buttonTint="@color/todo_personal_category"/>
+
+        <RadioButton
+            android:id="@+id/rbOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_other"
+            android:textColor="@color/white"
+            android:buttonTint="@color/todo_other_category"/>
+
+    </RadioGroup>
+
 </LinearLayout>
