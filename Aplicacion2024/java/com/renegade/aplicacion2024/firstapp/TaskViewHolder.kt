@@ -16,12 +16,6 @@ class TaskViewHolder (view: View): RecyclerView.ViewHolder(view) {
 
     fun render(task: Task) {
 
-        if(task.isSelected) {
-            tvTask.paintFlags = tvTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-        } else {
-            tvTask.paintFlags = tvTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG.inv()
-        }
-
         cbTask.isChecked = task.isSelected
         tvTask.text = task.name
 
@@ -34,6 +28,7 @@ class TaskViewHolder (view: View): RecyclerView.ViewHolder(view) {
         cbTask.buttonTintList = ColorStateList.valueOf(
             ContextCompat.getColor(cbTask.context, color)
         )
+
     }
 
 }
